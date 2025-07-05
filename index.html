@@ -30,29 +30,38 @@
       display: block;
     }
 
-    .smoke-img {
+    .smoke-effect {
       position: absolute;
       top: 38%;
       left: 50%;
-      width: 120px;
-      opacity: 0.4;
-      transform: translateX(-50%);
-      animation: drift 8s ease-in-out infinite;
+      width: 150px;
+      height: 150px;
       pointer-events: none;
+      transform: translate(-50%, -50%);
     }
 
-    @keyframes drift {
+    .smoke-effect::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 80%);
+      animation: soft-smoke 6s infinite ease-in-out;
+      border-radius: 50%;
+    }
+
+    @keyframes soft-smoke {
       0% {
-        opacity: 0.3;
-        transform: translateX(-50%) translateY(0) scale(1);
+        transform: translateY(0) scale(1);
+        opacity: 0.2;
       }
       50% {
-        opacity: 0.6;
-        transform: translateX(-50%) translateY(-30px) scale(1.1);
+        transform: translateY(-20px) scale(1.05);
+        opacity: 0.5;
       }
       100% {
-        opacity: 0.3;
-        transform: translateX(-50%) translateY(0) scale(1);
+        transform: translateY(0) scale(1);
+        opacity: 0.2;
       }
     }
   </style>
@@ -61,7 +70,7 @@
 
   <div class="image-container">
     <img src="background.jpeg" alt="Royalty Stone Full Page Background">
-    <img class="smoke-img" src="https://i.ibb.co/8dmcSkD/smoke1.png" alt="Smoke Effect">
+    <div class="smoke-effect"></div>
   </div>
 
 </body>
