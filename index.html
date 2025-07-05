@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royalty Stone - Healthy Cooking Pots</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      background-color: #000;
+      overflow-x: hidden;
+    }
+
+    .image-container {
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .smoke-img {
+      position: absolute;
+      top: 38%;
+      left: 50%;
+      width: 120px;
+      opacity: 0.4;
+      transform: translateX(-50%);
+      animation: drift 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes drift {
+      0% {
+        opacity: 0.3;
+        transform: translateX(-50%) translateY(0) scale(1);
+      }
+      50% {
+        opacity: 0.6;
+        transform: translateX(-50%) translateY(-30px) scale(1.1);
+      }
+      100% {
+        opacity: 0.3;
+        transform: translateX(-50%) translateY(0) scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="image-container">
+    <img src="background.jpeg" alt="Royalty Stone Full Page Background">
+    <img class="smoke-img" src="https://i.ibb.co/8dmcSkD/smoke1.png" alt="Smoke Effect">
+  </div>
+
+</body>
+</html>
