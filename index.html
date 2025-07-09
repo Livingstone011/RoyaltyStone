@@ -34,6 +34,32 @@
       z-index: 1;
     }
 
+    .leaf {
+      position: absolute;
+      width: 150px;
+      z-index: 2;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .leaf.left {
+      top: 10%;
+      left: 5%;
+      transform: rotate(-10deg);
+    }
+
+    .leaf.right {
+      top: 15%;
+      right: 5%;
+      transform: rotate(10deg);
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(var(--rotate)); }
+      50% { transform: translateY(-10px) rotate(calc(var(--rotate) + 2deg)); }
+      100% { transform: translateY(0) rotate(var(--rotate)); }
+    }
+
     .menu-button {
       position: fixed;
       top: 50px;
@@ -119,6 +145,8 @@
 
   <div class="image-container">
     <img class="background-image" src="background.jpeg" alt="Royalty Stone Full Page Background">
+    <img class="leaf left" src="left.png" alt="Left Leaf">
+    <img class="leaf right" src="right.png" alt="Right Leaf">
   </div>
 
   <script>
@@ -144,7 +172,6 @@
     function handleLinkClick(event) {
       event.preventDefault();
       closeMenu();
-      // Navigate or scroll to section if needed
     }
   </script>
 
