@@ -171,9 +171,9 @@
       const leafLeft = document.getElementById('leafLeft');
       const leafRight = document.getElementById('leafRight');
 
-      // Move leaves slower than scroll speed to mimic parallax
-      leafLeft.style.transform = `translateY(${scrollY * 0.3}px)`;
-      leafRight.style.transform = `translateY(${scrollY * 0.2}px)`;
+      // Slower parallax effect (0.1x speed)
+      leafLeft.style.transform = `translateY(${scrollY * 0.1}px)`;
+      leafRight.style.transform = `translateY(${scrollY * 0.1}px)`;
     });
   </script>
 
