@@ -110,11 +110,11 @@
   </button>
 
   <div id="dropdownMenu" class="menu" onmouseleave="closeMenu()">
-    <a href="#">Home</a>
-    <a href="#">Gastrolith</a>
-    <a href="#">Manifest</a>
-    <a href="#">Gallery</a>
-    <a href="#">Contact</a>
+    <a href="#" onclick="handleLinkClick(event)">Home</a>
+    <a href="#" onclick="handleLinkClick(event)">Gastrolith</a>
+    <a href="#" onclick="handleLinkClick(event)">Manifest</a>
+    <a href="#" onclick="handleLinkClick(event)">Gallery</a>
+    <a href="#" onclick="handleLinkClick(event)">Contact</a>
   </div>
 
   <div class="image-container">
@@ -139,6 +139,12 @@
         menu.classList.remove('open');
         setTimeout(() => menu.style.display = 'none', 500);
       }
+    }
+
+    function handleLinkClick(event) {
+      event.preventDefault();
+      closeMenu();
+      // Navigate or scroll to section if needed
     }
   </script>
 
