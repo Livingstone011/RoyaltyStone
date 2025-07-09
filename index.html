@@ -37,7 +37,7 @@
     .leaf {
       position: absolute;
       z-index: 2;
-      animation: float 6s ease-in-out infinite;
+      will-change: transform;
     }
 
     .leaf.left {
@@ -50,11 +50,6 @@
       width: 450px;
       top: 10%;
       right: 0%;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
     }
 
     .menu-button {
@@ -142,8 +137,8 @@
 
   <div class="image-container">
     <img class="background-image" src="background.jpeg" alt="Royalty Stone Full Page Background">
-    <img class="leaf left" src="left.png" alt="Left Leaf">
-    <img class="leaf right" src="right.png" alt="Right Leaf">
+    <img class="leaf left" src="left.png" alt="Left Leaf" id="leafLeft">
+    <img class="leaf right" src="right.png" alt="Right Leaf" id="leafRight">
   </div>
 
   <script>
@@ -170,6 +165,16 @@
       event.preventDefault();
       closeMenu();
     }
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const leafLeft = document.getElementById('leafLeft');
+      const leafRight = document.getElementById('leafRight');
+
+      // Move leaves slower than scroll speed to mimic parallax
+      leafLeft.style.transform = `translateY(${scrollY * 0.3}px)`;
+      leafRight.style.transform = `translateY(${scrollY * 0.2}px)`;
+    });
   </script>
 
 </body>
