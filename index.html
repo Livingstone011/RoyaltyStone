@@ -71,12 +71,16 @@
       gap: 15px;
       z-index: 999;
       opacity: 0;
-      transition: opacity 0.5s ease;
+      pointer-events: none;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      transform: translateY(-10px);
     }
 
     .menu.open {
       display: flex;
       opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
     }
 
     .menu a {
@@ -105,7 +109,7 @@
     </div>
   </button>
 
-  <div id="dropdownMenu" class="menu">
+  <div id="dropdownMenu" class="menu" onmouseleave="closeMenu()">
     <a href="#">Home</a>
     <a href="#">Gastrolith</a>
     <a href="#">Manifest</a>
@@ -126,6 +130,14 @@
       } else {
         menu.style.display = 'flex';
         setTimeout(() => menu.classList.add('open'), 10);
+      }
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById('dropdownMenu');
+      if (menu.classList.contains('open')) {
+        menu.classList.remove('open');
+        setTimeout(() => menu.style.display = 'none', 500);
       }
     }
   </script>
