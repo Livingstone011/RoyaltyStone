@@ -37,20 +37,24 @@
     .leaf {
       position: absolute;
       z-index: 2;
+      animation: float 6s ease-in-out infinite;
     }
 
     .leaf.left {
       width: 300px;
       top: 8%;
       left: 0%;
-      transform: rotate(-10deg);
     }
 
     .leaf.right {
       width: 450px;
       top: 10%;
       right: 0%;
-      transform: rotate(10deg);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
     }
 
     .menu-button {
