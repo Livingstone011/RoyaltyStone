@@ -42,13 +42,13 @@
 
     .leaf.left {
       width: 300px;
-      top: 9%; /* moved 1% higher from 10% */
+      top: 9%;
       left: 0%;
     }
 
     .leaf.right {
       width: 450px;
-      top: 10%; /* restored to original position */
+      top: 10%;
       right: 0%;
     }
 
@@ -114,6 +114,28 @@
     .menu a:hover {
       color: white;
     }
+
+    .hero-content {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 3;
+    }
+
+    .hero-content img {
+      width: 150px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .hero-slogan {
+      font-family: 'Angelique ma douce Colombe', cursive;
+      font-size: 24px;
+      color: #cfa14a;
+      letter-spacing: 2px;
+    }
   </style>
 </head>
 <body>
@@ -139,6 +161,11 @@
     <img class="background-image" src="background.jpeg" alt="Royalty Stone Full Page Background">
     <img class="leaf left" src="left.png" alt="Left Leaf" id="leafLeft">
     <img class="leaf right" src="right.png" alt="Right Leaf" id="leafRight">
+
+    <div class="hero-content">
+      <div class="hero-slogan">Back to Nature</div>
+      <img src="logo2%20Gold%20sa%20pozadinom.png" alt="Royalty Stone Logo">
+    </div>
   </div>
 
   <script>
