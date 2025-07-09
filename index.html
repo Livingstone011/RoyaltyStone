@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Royalty Stone - Healthy Cooking Pots</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Didot&display=swap');
+
     * {
       margin: 0;
       padding: 0;
@@ -15,7 +17,7 @@
       width: 100%;
       background-color: #000;
       overflow-x: hidden;
-      font-family: Arial, sans-serif;
+      font-family: 'Didot', serif;
     }
 
     .image-container {
@@ -34,52 +36,61 @@
 
     .menu-button {
       position: fixed;
-      top: 40px; /* moved down */
-      right: 40px; /* moved left */
+      top: 50px;
+      right: 50px;
       z-index: 1000;
       cursor: pointer;
       background: transparent;
       border: none;
-      color: white;
-      font-size: 14px;
+      color: #cccccc;
+      font-size: 18px;
+      letter-spacing: 3px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      font-family: 'Didot', serif;
+      text-transform: uppercase;
     }
 
     .menu-button span {
       display: block;
-      width: 20px;
-      height: 2px;
-      background-color: white;
-      margin: 3px 0;
+      width: 25px;
+      height: 3px;
+      background-color: #cccccc;
+      margin: 4px 0;
       transition: 0.3s;
     }
 
     .menu {
       position: fixed;
-      top: 90px;
-      right: 40px;
+      top: 100px;
+      right: 50px;
       padding: 10px 0;
       display: none;
       flex-direction: column;
       gap: 15px;
       z-index: 999;
-    }
-
-    .menu a {
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
-      transition: color 0.3s;
-    }
-
-    .menu a:hover {
-      color: #ccc;
+      opacity: 0;
+      transition: opacity 0.5s ease;
     }
 
     .menu.open {
       display: flex;
+      opacity: 1;
+    }
+
+    .menu a {
+      color: #cccccc;
+      text-decoration: none;
+      font-size: 18px;
+      letter-spacing: 3px;
+      font-family: 'Didot', serif;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .menu a:hover {
+      color: white;
     }
   </style>
 </head>
@@ -109,7 +120,13 @@
   <script>
     function toggleMenu() {
       const menu = document.getElementById('dropdownMenu');
-      menu.classList.toggle('open');
+      if (menu.classList.contains('open')) {
+        menu.classList.remove('open');
+        setTimeout(() => menu.style.display = 'none', 500);
+      } else {
+        menu.style.display = 'flex';
+        setTimeout(() => menu.classList.add('open'), 10);
+      }
     }
   </script>
 
