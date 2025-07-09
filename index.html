@@ -34,29 +34,33 @@
 
     .menu-button {
       position: fixed;
-      top: 20px;
-      right: 20px;
+      top: 40px; /* moved down */
+      right: 40px; /* moved left */
       z-index: 1000;
       cursor: pointer;
       background: transparent;
       border: none;
+      color: white;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .menu-button span {
       display: block;
-      width: 25px;
-      height: 3px;
-      margin: 5px 0;
+      width: 20px;
+      height: 2px;
       background-color: white;
+      margin: 3px 0;
       transition: 0.3s;
     }
 
     .menu {
       position: fixed;
-      top: 60px;
-      right: 20px;
-      background-color: rgba(0, 0, 0, 0.9);
-      padding: 10px 20px;
+      top: 90px;
+      right: 40px;
+      padding: 10px 0;
       display: none;
       flex-direction: column;
       gap: 15px;
@@ -82,9 +86,12 @@
 <body>
 
   <button class="menu-button" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
+    MENU
+    <div>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </button>
 
   <div id="dropdownMenu" class="menu">
