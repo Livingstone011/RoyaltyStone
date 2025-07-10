@@ -134,11 +134,11 @@
 
     .hero-slogan {
       font-family: 'Angelique', cursive;
-      font-size: 220px;
-      text-transform: uppercase;
+      font-size: 120px;
       color: #cfa14a;
       letter-spacing: 2px;
       margin-bottom: 10px;
+      text-transform: none;
     }
 
     .hero-content img {
@@ -185,4 +185,34 @@
       const menu = document.getElementById('dropdownMenu');
       if (menu.classList.contains('open')) {
         menu.classList.remove('open');
-        setTimeout
+        setTimeout(() => menu.style.display = 'none', 500);
+      } else {
+        menu.style.display = 'flex';
+        setTimeout(() => menu.classList.add('open'), 10);
+      }
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById('dropdownMenu');
+      if (menu.classList.contains('open')) {
+        menu.classList.remove('open');
+        setTimeout(() => menu.style.display = 'none', 500);
+      }
+    }
+
+    function handleLinkClick(event) {
+      event.preventDefault();
+      closeMenu();
+    }
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const leafLeft = document.getElementById('leafLeft');
+      const leafRight = document.getElementById('leafRight');
+      leafLeft.style.transform = `translateY(${scrollY * 0.1}px)`;
+      leafRight.style.transform = `translateY(${scrollY * 0.1}px)`;
+    });
+  </script>
+
+</body>
+</html>
