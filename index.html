@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Royalty Stone - Healthy Cooking Pots</title>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Didot&display=swap');
+
+    @font-face {
+      font-family: 'Angelique';
+      src: url('angelique.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
 
     * {
       margin: 0;
@@ -117,28 +125,31 @@
 
     .hero-content {
       position: absolute;
-      top: 12%; /* moved up from 20% */
+      top: 6%;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
       z-index: 3;
     }
 
-    .hero-content img {
-      width: 220px; /* increased from 150px */
-      height: auto;
-      margin-bottom: 20px;
-    }
-
     .hero-slogan {
-      font-family: 'Angelique ma douce Colombe', cursive;
-      font-size: 34px; /* increased from 24px */
+      font-family: 'Angelique', cursive;
+      font-size: 220px;
+      text-transform: uppercase;
       color: #cfa14a;
       letter-spacing: 2px;
       margin-bottom: 10px;
     }
+
+    .hero-content img {
+      width: 880px;
+      max-width: none;
+      height: auto;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
+
 <body>
 
   <button class="menu-button" onclick="toggleMenu()">
@@ -174,36 +185,4 @@
       const menu = document.getElementById('dropdownMenu');
       if (menu.classList.contains('open')) {
         menu.classList.remove('open');
-        setTimeout(() => menu.style.display = 'none', 500);
-      } else {
-        menu.style.display = 'flex';
-        setTimeout(() => menu.classList.add('open'), 10);
-      }
-    }
-
-    function closeMenu() {
-      const menu = document.getElementById('dropdownMenu');
-      if (menu.classList.contains('open')) {
-        menu.classList.remove('open');
-        setTimeout(() => menu.style.display = 'none', 500);
-      }
-    }
-
-    function handleLinkClick(event) {
-      event.preventDefault();
-      closeMenu();
-    }
-
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const leafLeft = document.getElementById('leafLeft');
-      const leafRight = document.getElementById('leafRight');
-
-      // Slower parallax effect (0.1x speed)
-      leafLeft.style.transform = `translateY(${scrollY * 0.1}px)`;
-      leafRight.style.transform = `translateY(${scrollY * 0.1}px)`;
-    });
-  </script>
-
-</body>
-</html>
+        setTimeout
