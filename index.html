@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -139,11 +138,13 @@
       letter-spacing: 2px;
       margin-bottom: 0px;
       text-transform: none;
-      background: linear-gradient(45deg, #8c6129, #d79e51);
+      background: linear-gradient(45deg, #a57230, #d79e51);
       background-size: 200% 100%;
       background-position: center;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
     }
 
     .hero-content img {
@@ -156,24 +157,32 @@
       animation-delay: 0.4s;
     }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
+    .smoke-overlay {
+      position: absolute;
+      top: 33%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 320px;
+      opacity: 0.5;
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    @keyframes fadeIn {
       to {
         opacity: 1;
-        transform: translateY(0);
       }
     }
 
-    .swirly-smoke {
-      position: absolute;
-      top: 45%;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 5;
-      pointer-events: none;
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, 40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
     }
   </style>
 </head>
@@ -202,18 +211,10 @@
     <img class="leaf left" src="left.png" alt="Left Leaf" id="leafLeft">
     <img class="leaf right" src="right.png" alt="Right Leaf" id="leafRight">
 
-    <div class="swirly-smoke">
-      <svg width="100" height="200" viewBox="0 0 100 200">
-        <path d="M50,200 C60,180 40,160 50,140 C60,120 40,100 50,80 C60,60 40,40 50,20" 
-              fill="none" 
-              stroke="white" 
-              stroke-opacity="0.15" 
-              stroke-width="5">
-          <animate attributeName="stroke-opacity" values="0.15;0.05;0.15" dur="3s" repeatCount="indefinite"/>
-          <animateTransform attributeName="transform" type="translate" from="0,0" to="0,-40" dur="5s" repeatCount="indefinite"/>
-        </path>
-      </svg>
-    </div>
+    <!-- New Smoke Overlay -->
+    <video class="smoke-overlay" autoplay loop muted playsinline>
+      <source src="smoke_trimmed_9to19s.mp4" type="video/mp4">
+    </video>
 
     <div class="hero-content">
       <div class="hero-slogan">Back to Nature</div>
