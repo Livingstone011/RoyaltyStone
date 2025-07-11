@@ -138,7 +138,7 @@
       letter-spacing: 2px;
       margin-bottom: 0px;
       text-transform: none;
-      background: linear-gradient(45deg, #a57230, #d79e51);
+      background: linear-gradient(45deg, #8c6129, #d79e51, #8c6129);
       background-size: 200% 100%;
       background-position: center;
       -webkit-background-clip: text;
@@ -157,32 +157,14 @@
       animation-delay: 0.4s;
     }
 
-    .smoke-overlay {
-      position: absolute;
-      top: 33%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 320px;
-      opacity: 0.5;
-      z-index: 4;
-      pointer-events: none;
-    }
-
     @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeUp {
-      0% {
-        opacity: 0;
-        transform: translate(-50%, 40px);
-      }
-      100% {
-        opacity: 1;
-        transform: translate(-50%, 0);
-      }
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -210,11 +192,6 @@
     <img class="background-image" src="background.jpeg" alt="Royalty Stone Full Page Background">
     <img class="leaf left" src="left.png" alt="Left Leaf" id="leafLeft">
     <img class="leaf right" src="right.png" alt="Right Leaf" id="leafRight">
-
-    <!-- New Smoke Overlay -->
-    <video class="smoke-overlay" autoplay loop muted playsinline>
-      <source src="smoke_trimmed_9to19s.mp4" type="video/mp4">
-    </video>
 
     <div class="hero-content">
       <div class="hero-slogan">Back to Nature</div>
