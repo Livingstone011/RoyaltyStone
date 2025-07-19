@@ -35,7 +35,6 @@
     }
 
     .background-image {
-      position: relative;
       width: 100%;
       height: auto;
       display: block;
@@ -130,22 +129,22 @@
       transform: translateX(-50%);
       text-align: center;
       z-index: 3;
-      will-change: transform;
     }
 
     .hero-slogan {
       font-family: 'Angelique', cursive;
       font-size: 120px;
       letter-spacing: 2px;
-      margin-bottom: 0px;
-      text-transform: none;
-      background: linear-gradient(135deg, #8c6129, #d79e51, #8c6129);
+      margin-bottom: 0;
+      background: linear-gradient(45deg, #a57230, #d79e51);
       background-size: 200% 100%;
       background-position: center;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       opacity: 0;
-      animation: fadeIn 2s ease-out forwards;
+      animation: fadeIn 2s ease-in forwards;
+      animation-delay: 0.2s;
+      will-change: transform;
     }
 
     .hero-content img {
@@ -156,22 +155,28 @@
       opacity: 0;
       animation: fadeUp 1.5s ease-out forwards;
       animation-delay: 0.4s;
+      will-change: transform;
     }
 
     @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
       to {
         opacity: 1;
+        transform: translateY(0);
       }
     }
 
     @keyframes fadeUp {
-      0% {
+      from {
         opacity: 0;
-        transform: translate(-50%, 20px);
+        transform: translateY(40px);
       }
-      100% {
+      to {
         opacity: 1;
-        transform: translate(-50%, 0);
+        transform: translateY(0);
       }
     }
   </style>
@@ -201,7 +206,7 @@
     <img class="leaf left" src="left.png" alt="Left Leaf" id="leafLeft">
     <img class="leaf right" src="right.png" alt="Right Leaf" id="leafRight">
 
-    <div class="hero-content" id="heroContent">
+    <div class="hero-content">
       <div class="hero-slogan" id="heroSlogan">Back to Nature</div>
       <img src="logo2%20Gold%20sa%20pozadinom.png" alt="Royalty Stone Logo" id="heroLogo">
     </div>
@@ -236,7 +241,8 @@
       const scrollY = window.scrollY;
       document.getElementById('leafLeft').style.transform = `translateY(${scrollY * 0.1}px)`;
       document.getElementById('leafRight').style.transform = `translateY(${scrollY * 0.1}px)`;
-      document.getElementById('heroContent').style.transform = `translateY(${scrollY * 0.1}px)`;
+      document.getElementById('heroSlogan').style.transform = `translateY(${scrollY * 0.1}px)`;
+      document.getElementById('heroLogo').style.transform = `translateY(${scrollY * 0.1}px)`;
     });
   </script>
 
