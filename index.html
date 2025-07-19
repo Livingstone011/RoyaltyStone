@@ -30,10 +30,12 @@
 
     .image-container {
       width: 100vw;
+      height: auto;
       position: relative;
     }
 
     .background-image {
+      position: relative;
       width: 100%;
       height: auto;
       display: block;
@@ -128,7 +130,6 @@
       transform: translateX(-50%);
       text-align: center;
       z-index: 3;
-      will-change: transform;
     }
 
     .hero-slogan {
@@ -137,14 +138,12 @@
       letter-spacing: 2px;
       margin-bottom: 0px;
       text-transform: none;
-      background: linear-gradient(135deg, #a57230, #d79e51);
-      background-size: 200% 100%;
-      background-position: center;
+      background: linear-gradient(to top left, #a57230, #d79e51);
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       opacity: 0;
-      animation: fadeIn 1.2s ease forwards;
-      animation-delay: 0.3s;
+      animation: fadeIn 1.2s ease-out forwards;
     }
 
     .hero-content img {
@@ -157,34 +156,20 @@
       animation-delay: 0.4s;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeUp {
-      from {
-        transform: translateY(30px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
+    /* Button Style */
     .more-button {
       position: absolute;
       color: white;
       font-family: 'Didot', serif;
-      font-size: 22px;
+      font-size: 14px;
       letter-spacing: 2px;
       background: transparent;
       border: none;
       text-transform: uppercase;
       cursor: pointer;
-      padding: 10px 30px;
+      padding: 8px 20px;
       z-index: 10;
+      transition: transform 0.3s ease;
     }
 
     .more-button::before,
@@ -192,43 +177,61 @@
       content: '';
       display: block;
       height: 2px;
-      width: 100%;
+      width: 150%;
+      margin: 0 auto;
       background: linear-gradient(to right, #a57230, #d79e51);
       transition: 0.3s ease;
     }
 
     .more-button::before {
-      margin-bottom: 8px;
+      margin-bottom: 5px;
     }
 
     .more-button::after {
-      margin-top: 8px;
+      margin-top: 5px;
     }
 
     .more-button:hover {
-      background: linear-gradient(to right, #a57230, #d79e51);
-      color: #000;
-      transform: scale(1.05);
-      transition: 0.3s ease;
+      color: #d79e51;
+      transform: scale(1.1);
     }
 
+    /* Button Positions */
     .button-gastrolith {
-      top: 38%;
+      top: 30%;
       left: 25%;
     }
 
     .button-manifesto {
-      top: 53%;
+      top: 44%;
       left: 50%;
       transform: translateX(-50%);
     }
 
     .button-gallery {
-      top: 80%;
-      right: 15%;
+      top: 72%;
+      left: 4%;
     }
+
+    /* Animations */
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      0% {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
   <button class="menu-button" onclick="toggleMenu()">
@@ -241,11 +244,11 @@
   </button>
 
   <div id="dropdownMenu" class="menu" onmouseleave="closeMenu()">
-    <a href="#" onclick="handleLinkClick(event)">Home</a>
-    <a href="#" onclick="handleLinkClick(event)">Gastrolith</a>
-    <a href="#" onclick="handleLinkClick(event)">Manifesto</a>
-    <a href="#" onclick="handleLinkClick(event)">Gallery</a>
-    <a href="#" onclick="handleLinkClick(event)">Contact</a>
+    <a href="#">Home</a>
+    <a href="#">Gastrolith</a>
+    <a href="#">Manifesto</a>
+    <a href="#">Gallery</a>
+    <a href="#">Contact</a>
   </div>
 
   <div class="image-container">
@@ -253,11 +256,12 @@
     <img class="leaf left" src="left.png" alt="Left Leaf" id="leafLeft">
     <img class="leaf right" src="right.png" alt="Right Leaf" id="leafRight">
 
-    <div class="hero-content" id="heroContent">
+    <div class="hero-content">
       <div class="hero-slogan">Back to Nature</div>
       <img src="logo2%20Gold%20sa%20pozadinom.png" alt="Royalty Stone Logo">
     </div>
 
+    <!-- Buttons -->
     <button class="more-button button-gastrolith">More</button>
     <button class="more-button button-manifesto">More</button>
     <button class="more-button button-gallery">More</button>
@@ -283,20 +287,13 @@
       }
     }
 
-    function handleLinkClick(event) {
-      event.preventDefault();
-      closeMenu();
-    }
-
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
-      const leafLeft = document.getElementById('leafLeft');
-      const leafRight = document.getElementById('leafRight');
-      const hero = document.getElementById('heroContent');
-      leafLeft.style.transform = `translateY(${scrollY * 0.1}px)`;
-      leafRight.style.transform = `translateY(${scrollY * 0.1}px)`;
-      hero.style.transform = `translate(-50%, ${scrollY * 0.1}px)`;
+      document.getElementById('leafLeft').style.transform = `translateY(${scrollY * 0.1}px)`;
+      document.getElementById('leafRight').style.transform = `translateY(${scrollY * 0.1}px)`;
+      document.querySelector('.hero-content').style.transform = `translate(-50%, ${scrollY * 0.1}px)`;
     });
   </script>
+
 </body>
 </html>
