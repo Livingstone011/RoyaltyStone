@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scroll Fix Demo</title>
+</head>
+<body>
+  <img id="leafLeft" src="left.png" style="position:absolute; left:0; top:0;">
+  <img id="leafRight" src="right.png" style="position:absolute; right:0; top:0;">
+  <div style="height: 3000px;"></div>
+  
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('dropdownMenu');
+    if (menu.classList.contains('open')) {
+      menu.classList.remove('open');
+      setTimeout(() => menu.style.display = 'none', 500);
+    } else {
+      menu.style.display = 'flex';
+      setTimeout(() => menu.classList.add('open'), 10);
+    }
+  }
+
+  function closeMenu() {
+    const menu = document.getElementById('dropdownMenu');
+    if (menu.classList.contains('open')) {
+      menu.classList.remove('open');
+      setTimeout(() => menu.style.display = 'none', 500);
+    }
+  }
+
+  window.addEventListener('scroll', function () {
+    var scrollY = window.scrollY;
+    document.getElementById('leafLeft').style.transform = 'translateY(' + (scrollY * 0.1) + 'px)';
+    document.getElementById('leafRight').style.transform = 'translateY(' + (scrollY * 0.1) + 'px)';
+  });
+</script>
+
+</body>
+</html>
