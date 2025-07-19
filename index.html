@@ -130,6 +130,7 @@
       transform: translateX(-50%);
       text-align: center;
       z-index: 3;
+      will-change: transform;
     }
 
     .hero-slogan {
@@ -138,7 +139,7 @@
       letter-spacing: 2px;
       margin-bottom: 0px;
       text-transform: none;
-      background: linear-gradient(45deg, #8c6129, #d79e51, #8c6129);
+      background: linear-gradient(135deg, #8c6129, #d79e51, #8c6129);
       background-size: 200% 100%;
       background-position: center;
       -webkit-background-clip: text;
@@ -158,13 +159,20 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      to {
+        opacity: 1;
+      }
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+      0% {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
     }
   </style>
 </head>
@@ -193,9 +201,9 @@
     <img class="leaf left" src="left.png" alt="Left Leaf" id="leafLeft">
     <img class="leaf right" src="right.png" alt="Right Leaf" id="leafRight">
 
-    <div class="hero-content">
-      <div class="hero-slogan">Back to Nature</div>
-      <img src="logo2%20Gold%20sa%20pozadinom.png" alt="Royalty Stone Logo">
+    <div class="hero-content" id="heroContent">
+      <div class="hero-slogan" id="heroSlogan">Back to Nature</div>
+      <img src="logo2%20Gold%20sa%20pozadinom.png" alt="Royalty Stone Logo" id="heroLogo">
     </div>
   </div>
 
@@ -226,10 +234,9 @@
 
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
-      const leafLeft = document.getElementById('leafLeft');
-      const leafRight = document.getElementById('leafRight');
-      leafLeft.style.transform = `translateY(${scrollY * 0.1}px)`;
-      leafRight.style.transform = `translateY(${scrollY * 0.1}px)`;
+      document.getElementById('leafLeft').style.transform = `translateY(${scrollY * 0.1}px)`;
+      document.getElementById('leafRight').style.transform = `translateY(${scrollY * 0.1}px)`;
+      document.getElementById('heroContent').style.transform = `translateY(${scrollY * 0.1}px)`;
     });
   </script>
 
