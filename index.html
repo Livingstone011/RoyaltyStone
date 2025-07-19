@@ -35,6 +35,7 @@
     }
 
     .background-image {
+      position: relative;
       width: 100%;
       height: auto;
       display: block;
@@ -126,26 +127,23 @@
       position: absolute;
       top: 6.35%;
       left: 50%;
-      transform: translate(-50%, 0);
+      transform: translateX(-50%);
       text-align: center;
       z-index: 3;
-      will-change: transform;
     }
 
     .hero-slogan {
       font-family: 'Angelique', cursive;
       font-size: 120px;
       letter-spacing: 2px;
-      margin-bottom: 0;
-      background: linear-gradient(45deg, #a57230, #d79e51);
+      margin-bottom: 0px;
+      background: linear-gradient(135deg, #8c6129, #d79e51, #8c6129);
       background-size: 200% 100%;
       background-position: center;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       opacity: 0;
-      animation: fadeIn 2s ease-in forwards;
-      animation-delay: 0.2s;
-      will-change: transform;
+      animation: fadeIn 2s ease-out forwards;
     }
 
     .hero-content img {
@@ -156,29 +154,56 @@
       opacity: 0;
       animation: fadeUp 1.5s ease-out forwards;
       animation-delay: 0.4s;
-      will-change: transform;
     }
 
+    .button {
+      position: absolute;
+      padding: 12px 32px;
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      text-transform: uppercase;
+      font-family: 'Didot', serif;
+      font-size: 16px;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      z-index: 4;
+    }
+
+    .button:hover {
+      background: white;
+      color: black;
+    }
+
+    /* Positions */
+    #btn-gastrolith {
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #btn-manifesto {
+      top: 66%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #btn-gallery {
+      top: 87%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Animations */
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -197,7 +222,7 @@
   <div id="dropdownMenu" class="menu" onmouseleave="closeMenu()">
     <a href="#" onclick="handleLinkClick(event)">Home</a>
     <a href="#" onclick="handleLinkClick(event)">Gastrolith</a>
-    <a href="#" onclick="handleLinkClick(event)">Manifest</a>
+    <a href="#" onclick="handleLinkClick(event)">Manifesto</a>
     <a href="#" onclick="handleLinkClick(event)">Gallery</a>
     <a href="#" onclick="handleLinkClick(event)">Contact</a>
   </div>
@@ -207,10 +232,16 @@
     <img class="leaf left" src="left.png" alt="Left Leaf" id="leafLeft">
     <img class="leaf right" src="right.png" alt="Right Leaf" id="leafRight">
 
-    <div class="hero-content" id="heroContent">
-      <div class="hero-slogan" id="heroSlogan">Back to Nature</div>
-      <img src="logo2%20Gold%20sa%20pozadinom.png" alt="Royalty Stone Logo" id="heroLogo">
+    <div class="hero-content">
+      <div class="hero-slogan">Back to Nature</div>
+      <img src="logo2%20Gold%20sa%20pozadinom.png" alt="Royalty Stone Logo">
     </div>
+
+    <!-- Animated Buttons -->
+    <button class="button" id="btn-gastrolith" onclick="navigateTo('gastrolith.html')">More</button>
+    <button class="button" id="btn-manifesto" onclick="navigateTo('manifesto.html')">More</button>
+    <button class="button" id="btn-gallery" onclick="navigateTo('gallery.html')">More</button>
+
   </div>
 
   <script>
@@ -238,12 +269,16 @@
       closeMenu();
     }
 
-    // Parallax scroll effect for leaves and hero content
+    function navigateTo(page) {
+      window.location.href = page;
+    }
+
+    // Parallax effect
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
       document.getElementById('leafLeft').style.transform = `translateY(${scrollY * 0.1}px)`;
       document.getElementById('leafRight').style.transform = `translateY(${scrollY * 0.1}px)`;
-      document.getElementById('heroContent').style.transform = `translate(-50%, ${scrollY * 0.1}px)`;
+      document.querySelector('.hero-content').style.transform = `translate(-50%, ${scrollY * 0.1}px)`;
     });
   </script>
 
