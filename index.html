@@ -126,9 +126,10 @@
       position: absolute;
       top: 6.35%;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, 0);
       text-align: center;
       z-index: 3;
+      will-change: transform;
     }
 
     .hero-slogan {
@@ -206,7 +207,7 @@
     <img class="leaf left" src="left.png" alt="Left Leaf" id="leafLeft">
     <img class="leaf right" src="right.png" alt="Right Leaf" id="leafRight">
 
-    <div class="hero-content">
+    <div class="hero-content" id="heroContent">
       <div class="hero-slogan" id="heroSlogan">Back to Nature</div>
       <img src="logo2%20Gold%20sa%20pozadinom.png" alt="Royalty Stone Logo" id="heroLogo">
     </div>
@@ -237,13 +238,12 @@
       closeMenu();
     }
 
-    // Parallax scroll effect for slogan and logo
+    // Parallax scroll effect for leaves and hero content
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
       document.getElementById('leafLeft').style.transform = `translateY(${scrollY * 0.1}px)`;
       document.getElementById('leafRight').style.transform = `translateY(${scrollY * 0.1}px)`;
-      document.getElementById('heroSlogan').style.transform = `translateY(${scrollY * 0.1}px)`;
-      document.getElementById('heroLogo').style.transform = `translateY(${scrollY * 0.1}px)`;
+      document.getElementById('heroContent').style.transform = `translate(-50%, ${scrollY * 0.1}px)`;
     });
   </script>
 
