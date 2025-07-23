@@ -173,12 +173,13 @@
       z-index: 10;
       padding: 10px 20px;
       transition: all 0.3s ease;
+      text-decoration: none;
     }
 
     .more-button span {
       display: block;
       text-align: center;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, text-shadow 0.3s ease;
     }
 
     .more-button::before,
@@ -201,6 +202,7 @@
 
     .more-button:hover span {
       transform: scale(1.1);
+      text-shadow: 0 0 10px rgba(215, 158, 81, 0.8);
     }
 
     .more-button:hover::before,
@@ -240,20 +242,6 @@
         opacity: 1;
       }
     }
-
-    @media (max-width: 768px) {
-      .hero-slogan {
-        font-size: 60px;
-      }
-      .hero-content img {
-        width: 90vw;
-        margin-top: -120px;
-      }
-      .more-button {
-        font-size: 14px;
-        padding: 8px 16px;
-      }
-    }
   </style>
 </head>
 
@@ -286,7 +274,7 @@
       <img src="logo2%20Gold%20sa%20pozadinom.png" alt="Royalty Stone Logo">
     </div>
 
-    <!-- Buttons with links -->
+    <!-- Buttons -->
     <a href="gastrolith.html" class="more-button button-gastrolith"><span>More</span></a>
     <a href="manifesto.html" class="more-button button-manifesto"><span>More</span></a>
     <a href="gallery.html" class="more-button button-gallery"><span>More</span></a>
