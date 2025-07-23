@@ -159,23 +159,25 @@
     /* Button Style */
     .more-button {
       position: absolute;
-      color: white;
       font-family: 'Didot', serif;
-      font-size: 14px;
-      letter-spacing: 2px;
+      font-size: 16px;
+      text-transform: uppercase;
       background: transparent;
       border: none;
-      text-transform: uppercase;
+      color: white;
+      letter-spacing: 2px;
       cursor: pointer;
-      padding: 8px 20px;
-      z-index: 10;
       display: flex;
       flex-direction: column;
       align-items: center;
-      transition: transform 0.3s ease;
+      z-index: 10;
+      padding: 10px 20px;
+      transition: all 0.3s ease;
     }
 
     .more-button span {
+      display: block;
+      text-align: center;
       transition: transform 0.3s ease;
     }
 
@@ -184,22 +186,25 @@
       content: '';
       display: block;
       height: 2px;
-      width: 150%;
-      margin: 0 auto;
+      width: 180%;
       background: linear-gradient(to right, #a57230, #d79e51);
       transition: 0.3s ease;
     }
 
     .more-button::before {
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
 
     .more-button::after {
-      margin-top: 5px;
+      margin-top: 6px;
     }
 
     .more-button:hover span {
       transform: scale(1.1);
+    }
+
+    .more-button:hover {
+      box-shadow: 0 0 15px rgba(215, 158, 81, 0.4);
     }
 
     /* Button Positions */
