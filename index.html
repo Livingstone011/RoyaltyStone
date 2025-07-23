@@ -48,31 +48,10 @@
       will-change: transform;
     }
 
-    /* Gentle breeze animation for the left leaf */
-    @keyframes gentleBreeze {
-      0% {
-        transform: translateY(0px) rotate(0deg) scale(1);
-      }
-      25% {
-        transform: translateY(-2px) rotate(-1deg) scale(1.01);
-      }
-      50% {
-        transform: translateY(1px) rotate(0.6deg) scale(0.995);
-      }
-      75% {
-        transform: translateY(-1px) rotate(-0.8deg) scale(1.005);
-      }
-      100% {
-        transform: translateY(0px) rotate(0deg) scale(1);
-      }
-    }
-
     .leaf.left {
       width: 300px;
       top: 9%;
       left: 0%;
-      animation: gentleBreeze 8s ease-in-out infinite;
-      transform-origin: center;
     }
 
     .leaf.right {
@@ -194,6 +173,7 @@
       z-index: 10;
       padding: 10px 20px;
       transition: all 0.3s ease;
+      text-decoration: none;
     }
 
     .more-button span {
@@ -222,12 +202,13 @@
 
     .more-button:hover span {
       transform: scale(1.1);
-      text-shadow: 0 0 8px #d79e51;
+      text-shadow: 0 0 10px rgba(215, 158, 81, 0.8);
     }
 
     .more-button:hover::before,
     .more-button:hover::after {
-      box-shadow: 0 0 10px 2px #d79e51;
+      box-shadow: 0 0 10px rgba(215, 158, 81, 0.7);
+      transform: scaleX(1.05);
     }
 
     /* Button Positions */
@@ -261,29 +242,6 @@
         opacity: 1;
       }
     }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero-slogan {
-        font-size: 64px;
-      }
-
-      .hero-content img {
-        width: 300px;
-        margin-top: -150px;
-      }
-
-      .more-button {
-        font-size: 14px;
-        padding: 8px 16px;
-      }
-
-      .more-button::before,
-      .more-button::after {
-        width: 140%;
-      }
-    }
-
   </style>
 </head>
 
