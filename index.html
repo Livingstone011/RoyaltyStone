@@ -159,18 +159,17 @@
     /* Button Style */
     .more-button {
       position: absolute;
-      font-family: 'Didot', serif;
-      font-size: 13px;
-      letter-spacing: 2px;
       color: white;
+      font-family: 'Didot', serif;
+      font-size: 14px;
+      letter-spacing: 2px;
       background: transparent;
       border: none;
       text-transform: uppercase;
       cursor: pointer;
-      padding: 10px 30px;
+      padding: 8px 20px;
       z-index: 10;
-      transition: transform 0.3s ease, background 0.3s ease;
-      text-align: center;
+      transition: transform 0.3s ease;
     }
 
     .more-button::before,
@@ -178,47 +177,40 @@
       content: '';
       display: block;
       height: 2px;
-      width: 200%;
+      width: 150%;
       margin: 0 auto;
       background: linear-gradient(to right, #a57230, #d79e51);
+      transition: 0.3s ease;
     }
 
     .more-button::before {
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
 
     .more-button::after {
-      margin-top: 6px;
+      margin-top: 5px;
     }
 
     .more-button:hover {
-      background: linear-gradient(to right, #a57230, #d79e51);
-    }
-
-    .more-button:hover span {
+      color: #d79e51;
       transform: scale(1.1);
-    }
-
-    .more-button span {
-      display: inline-block;
-      transition: transform 0.3s ease;
     }
 
     /* Button Positions */
     .button-gastrolith {
-      top: 22%;
+      top: 27.5%;
       left: 24%;
     }
 
     .button-manifesto {
-      top: 30%;
-      left: 50%;
+      top: 36.5%;
+      left: 48%;
       transform: translateX(-50%);
     }
 
     .button-gallery {
-      top: 40%;
-      left: 5%;
+      top: 56.5%;
+      left: 63%;
     }
 
     /* Animations */
@@ -253,9 +245,9 @@
 
   <div id="dropdownMenu" class="menu" onmouseleave="closeMenu()">
     <a href="#">Home</a>
-    <a href="gastrolith.html">Gastrolith</a>
-    <a href="manifesto.html">Manifesto</a>
-    <a href="gallery.html">Gallery</a>
+    <a href="#">Gastrolith</a>
+    <a href="#">Manifesto</a>
+    <a href="#">Gallery</a>
     <a href="#">Contact</a>
   </div>
 
@@ -270,9 +262,9 @@
     </div>
 
     <!-- Buttons -->
-    <a href="gastrolith.html" class="more-button button-gastrolith"><span>More</span></a>
-    <a href="manifesto.html" class="more-button button-manifesto"><span>More</span></a>
-    <a href="gallery.html" class="more-button button-gallery"><span>More</span></a>
+    <button class="more-button button-gastrolith">More</button>
+    <button class="more-button button-manifesto">More</button>
+    <button class="more-button button-gallery">More</button>
   </div>
 
   <script>
